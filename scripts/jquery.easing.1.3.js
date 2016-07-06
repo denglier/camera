@@ -35,15 +35,15 @@
  *
  */
 
-$(document).ready(function() {
+(function(sub$, undefined) {
   // t: current time, b: begInnIng value, c: change In value, d: duration
-  jQuery.easing['jswing'] = jQuery.easing['swing'];
+  sub$.easing['jswing'] = sub$.easing['swing'];
 
-  jQuery.extend(jQuery.easing, {
+  sub$.extend(sub$.easing, {
     def: 'easeOutQuad',
     swing: function(x, t, b, c, d) {
-      //alert(jQuery.easing.default);
-      return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+      //alert(sub$.easing.default);
+      return sub$.easing[sub$.easing.def](x, t, b, c, d);
     },
     easeInQuad: function(x, t, b, c, d) {
       return c * (t /= d) * t + b;
@@ -170,7 +170,7 @@ $(document).ready(function() {
       return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
     },
     easeInBounce: function(x, t, b, c, d) {
-      return c - jQuery.easing.easeOutBounce(x, d - t, 0, c, d) + b;
+      return c - sub$.easing.easeOutBounce(x, d - t, 0, c, d) + b;
     },
     easeOutBounce: function(x, t, b, c, d) {
       if ((t /= d) < (1 / 2.75)) {
@@ -184,11 +184,11 @@ $(document).ready(function() {
       }
     },
     easeInOutBounce: function(x, t, b, c, d) {
-      if (t < d / 2) return jQuery.easing.easeInBounce(x, t * 2, 0, c, d) * .5 + b;
-      return jQuery.easing.easeOutBounce(x, t * 2 - d, 0, c, d) * .5 + c * .5 + b;
+      if (t < d / 2) return sub$.easing.easeInBounce(x, t * 2, 0, c, d) * .5 + b;
+      return sub$.easing.easeOutBounce(x, t * 2 - d, 0, c, d) * .5 + c * .5 + b;
     }
   });
-});
+}) (jQuery);
 /*
  *
  * TERMS OF USE - EASING EQUATIONS
